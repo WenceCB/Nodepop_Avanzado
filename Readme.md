@@ -15,6 +15,14 @@ Ahora cambio las extensiones de las vistas de ejs a html
 
 ---------
 
+Arrancamos la base de datos
+
+Ruta de mongo
+
+bin/mongod --dbpath ./data/db --directoryperdb
+
+---------
+
 Internacionalización del frontend
 
 Para ello utilizo la libreria i18n, npm i i18n
