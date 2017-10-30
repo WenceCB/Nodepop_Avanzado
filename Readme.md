@@ -32,6 +32,10 @@ En el app.js, importo el archivo de configuración y llamo a la función init.
 
 Modifico el header.html para incluir los lenguajes disponibles en la barra de navegación
 
+Antes de lo que quiera traducir, como i18n esta en global, añado al principio de la línea
+
+<%= __('texto a traducir') %>
+
 ---------
 
 Arrancamos la base de datos

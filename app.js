@@ -15,15 +15,15 @@ var app = express();
 app.set('view engine', 'html');
 app.engine('html', require('ejs').__express);
 
-// Defino la liberia i18n para que actúe al ser llamada desde el request
-app.use(i18n.init); 
+
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+// Defino la liberia i18n para que actúe al ser llamada desde el request
+app.use(i18n.init); 
 // Defino donde tengo mis vistas cuando son llamadas
 
 app.use('/', index);

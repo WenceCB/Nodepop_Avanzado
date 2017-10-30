@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 router.get('/lang/:locale', (req, res, next) => {
   const locale = req.params.locale;
   const referer = req.query.redir || req.get('referer');
-  res.cookie('nodeapi-lang', locale, { maxAge: 900000, httpOnly: true });
+  res.cookie('nodepop-lang', locale, { maxAge: 900000, httpOnly: true });
   res.redirect(referer);
 });
 
