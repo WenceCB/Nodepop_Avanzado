@@ -1,4 +1,4 @@
-<% include header %>
+<%include header.html%>
 <% if(error.status == 404){
     message = "Estás intentando acceder a algo que no hay ...";
 }
@@ -11,4 +11,4 @@ else{
           <h1><%= message %></h1>
 <h2>Código de error <%= error.status %></h2>
 </div>   
-<% include footer %>
+<%include footer.html%>
