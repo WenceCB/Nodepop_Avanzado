@@ -1,0 +1,81 @@
+<% include header %>
+ <h1 class="my-4">Debería de haber más campos para filtrar</h1>
+      <p>Todavía no está implementado</p>
+      <p>Tendrás que hacerlo a través de Postman o del navegador, pero funciona ...</p>   
+<div class="form_filtrar">
+    <h2 class="">Filtrar Anuncios</h2>
+    <div class="formularioFiltrar">
+        <div>
+        <label>Nombre</label>
+        <input type="text" id="nombre">
+        </div>       
+        <label>Tags</label>
+        <input type="text" id="tag">
+        </div>    
+         <button id="boton" onclick="info()">Filtrar</button>      
+     </div> 
+   
+</div>
+
+<script>
+
+// Establezco cada variable con su input correspondiente
+
+const nombre = document.getElementById('nombre');
+const tags = document.getElementById('tag');
+
+const boton =  document.getElementById('boton');
+
+// Variables para trabajar con el JSON y con un array para asignar los datos introducidos por el usuario
+
+var filtrado;
+var arrInput;
+
+var ruta;
+
+function info(){
+
+    // Creo una variable que contiene los elementos que voy a utilizar para buscar en el API
+
+    filtrado ={
+        "nombre":"",            
+        "tags":""
+    };   
+
+    // Asigno en un array el valor del inputs
+
+    arrInput=[nombre,tags];
+
+    // Asigno el contenido de los imputs guardados en el array a la clave del JSON
+
+    for (i=0;i<Object.keys(filtrado).length;i++){            
+        (filtrado)[Object.keys(filtrado)[i]] = arrInput[i].value;  
+        console.log((filtrado)[Object.keys(filtrado)[i]] = arrInput[i].value);             
+    };
+    // LLamo a otra función    
+   validar();
+
+   // Variables para trabajar con la expresión generada y poder pasarla limpia
+
+    var stringified = JSON.stringify(filtrado);   
+    var consulta1 = stringified.replace(/['"{}]/g,'');
+    var consulta2 = consulta1.replace(/[:]/g,'=');
+    var consulta3 = consulta2.replace(/[,'"{}]/g,'&');  
+    window.location.href = '/apiv1/anuncios?'+consulta3;
+  
+}
+function validar(){
+    
+    // Compruebo que elemento está vacío para eliminarlo de la consulta
+   
+    for (i=0;i<Object.keys(filtrado).length;i++){
+        if((filtrado)[Object.keys(filtrado)[i]] == ""){            
+             delete (filtrado)[Object.keys(filtrado)[i]];
+             // Al modificar el tamaño del array tengo que restar al iterador
+             i--;        
+        }            
+    }  
+   
+} 
+</script>
+<% include footer %>

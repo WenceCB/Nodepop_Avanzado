@@ -1,0 +1,23 @@
+
+body {
+    padding-top: 54px;
+}
+#footer{
+   
+    width: 100%;
+    bottom:0;
+}
+#tituloTodos{
+    text-align: center;
+    font-weight: bold;
+}
+.form_filtrar{
+    margin: 5%;
+    text-align: center;
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 56px;
+    }
+}
