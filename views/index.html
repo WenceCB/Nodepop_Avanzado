@@ -3,21 +3,16 @@
   <header class="masthead">
     <div class="container h-100">
       <div class="row h-100">
-
       <!-- Introduction Row -->
-      <div class="col-lg-7 my-auto">
-          <h2 class="my-4">Práctica de Backend Avanzado</h2>
-        <div class="header-content mx-auto">
-      <h3 class="my-4">Internacionalización del frontend</h3>      
-      <small>Desde la esquina superior derecha se pueden elegir los idiomas</small>
-    </div>
-  </div>
-  <div class="col-lg-7 my-auto">
-      <p>Dede la barra de navegación se pueden realizar las diferentes operaciones</p> 
-  </div> 
+        <div class="col-lg-7 my-auto">
+          <h2 class="my-4"><%= __('Práctica de Backend Avanzado')%></h2>
+          <div class="header-content mx-auto">
+            <h3 class="my-4"><%= __('Internacionalización del frontend')%></h3>      
+            <small><%= __('Desde la esquina superior derecha se pueden elegir los idiomas')%></small>
+          </div>
+        </div>  
       </div>   
     </div>
   </div>
 </header>
-
-      <%include footer.html%>
+<%include footer.html%>
