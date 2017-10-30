@@ -13,6 +13,25 @@ app.engine('html', require('ejs').__express);
 
 Ahora cambio las extensiones de las vistas de ejs a html
 
+
+Internacionalización del frontend
+
+Para ello utilizo la libreria i18n, npm i i18n
+
+Creo archivo de configuracion global en la carpeta lib
+i18nConfigure.js
+
+Creo los diccionarios en json para el lenguaje inglés y español, que en principio son los idiomas disponibles para traducir
+
+/locales
+
+en.json
+es.json
+
+En el app.js, importo el archivo de configuración y llamo a la función init.
+
+Modifico el header.html para incluir los lenguajes disponibles en la barra de navegación
+
 ---------
 
 Arrancamos la base de datos
@@ -22,7 +41,3 @@ Ruta de mongo
 bin/mongod --dbpath ./data/db --directoryperdb
 
 ---------
-
-Internacionalización del frontend
-
-Para ello utilizo la libreria i18n, npm i i18n
