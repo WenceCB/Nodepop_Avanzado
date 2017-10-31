@@ -45,3 +45,17 @@ Ruta de mongo
 bin/mongod --dbpath ./data/db --directoryperdb
 
 ---------
+
+Creación de test e2e
+
+Creo un directorio e2e
+
+Instalo dependecias de supertest
+
+npm i supertest
+
+Creo en el package.json un script para ejecutar los test
+
+"e2e": "cross-env LOG_FORMAT=nolog mocha **/*.e2e.js --recursive --watch --timeout 10000"
+
+npm run e2e
