@@ -5,7 +5,8 @@ const router = express.Router();
 
 // Le pedimos a moongose que nos de el modelo de Anuncio
 
-const Anuncio = require('..//../models/Anuncio');
+
+const Anuncio = require('../../models/Anuncio');
 
 
 // Construcción de rutas para imágenes
