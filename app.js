@@ -24,6 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // Defino la liberia i18n para que actúe al ser llamada desde el request
 app.use(i18n.init); 
+
 // Defino donde tengo mis vistas cuando son llamadas
 
 app.use('/', index);
@@ -31,6 +32,8 @@ app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
 app.use('/apiv1/tags', require('./routes/apiv1/tags'));
 app.use('/apiv1/filtrar', require('./routes/apiv1/filtrar'));
 app.use('/apiv1/crear', require('./routes/apiv1/crear'));
+app.get( '/login',  loginController.index);
+app.post('/login',  loginController.post);
 
 
 app.get('/public/stylesheets/css/bootstrap.min.css', function (req, res) {
