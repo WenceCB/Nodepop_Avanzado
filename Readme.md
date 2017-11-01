@@ -58,4 +58,8 @@ Creo en el package.json un script para ejecutar los test
 
 "e2e": "cross-env LOG_FORMAT=nolog mocha **/*.e2e.js --recursive --watch --timeout 10000"
 
+Instalo mockgoose para poder trabajar los test con una base de datos sin alterar la mía
+
+npm i mockgoose
+
 npm run e2e
