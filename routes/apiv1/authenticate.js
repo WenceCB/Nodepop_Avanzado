@@ -38,15 +38,15 @@ class LoginController {
         if (err){          
           return next(err);
         }
-      // Respondo con JWT
-        res.json({
-          ok:true,
-          token: token
-        })
-       
-        
+      // Respondo con JWT         
+       res.status(200).json({
+        ok:true,
+        token: token
+      })     
     })     
+      localStorage.setItem('token', token);      
   } 
+  
 }
 
 module.exports = new LoginController();
