@@ -2,5 +2,10 @@
 	"Práctica de Backend Avanzado": "Avanced Backend Practice",
 	"Internacionalización del frontend": "Frontend Internationalize",
 	"Desde la esquina superior derecha se pueden elegir los idiomas": "From the upper right corner you can choose languages",
-	"Anuncios": "Anuncios"
+	"Anuncios": "Anuncios",
+	"Haz login para acceder a la aplicación": "Haz login para acceder a la aplicación",
+	"Correo Electronico": "Correo Electronico",
+	"Credenciales Inválidas": "Credenciales Inválidas",
+	"Código de error": "Código de error",
+	"Código de error ": "Código de error "
 }

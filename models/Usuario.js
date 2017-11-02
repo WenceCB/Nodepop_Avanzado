@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-var hash = require('hash.js');.j
+var hash = require('hash.js');
 
 const usuarioSchema = mongoose.Schema({
   name: String,

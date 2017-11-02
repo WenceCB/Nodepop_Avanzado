@@ -4,10 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var index = require('./routes/index');
+const jwtAuth = require('./lib/jwtAuth');
+/*
+const sessionAuth = require('./lib/sessionAuth'); 
+const session = require('express-session');
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo')(session);*/
 
-// Cargo archivo de Configuración de i18n
-const i18n = require('./lib/i18nConfigure')();
+// Inicializamos variables de enterno desde el fichero .env
+require('dotenv').config(); 
+
+
+
 
 var app = express();
 
@@ -22,28 +30,40 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Cargo librerias y modelos
+require('./lib/connectMongoose');
+require('./models/Anuncio');
+require('./models/Usuario');
+
 // Defino la liberia i18n para que actúe al ser llamada desde el request
+const i18n = require('./lib/i18nConfigure')();
 app.use(i18n.init); 
+
+
+app.use('/apiv1/anuncios', jwtAuth(), require('./routes/apiv1/anuncios'));
+
+
+
+
+const loginController = require('./routes/apiv1/authenticate');
+
+app.get( '/apiv1/authenticate',  loginController.index);
+app.post('/apiv1/authenticate',  loginController.postLoginJWT);
 
 // Defino donde tengo mis vistas cuando son llamadas
 
-app.use('/', index);
-app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
+app.use('/',require('./routes/index'));
 app.use('/apiv1/tags', require('./routes/apiv1/tags'));
 app.use('/apiv1/filtrar', require('./routes/apiv1/filtrar'));
 app.use('/apiv1/crear', require('./routes/apiv1/crear'));
-app.get( '/login',  loginController.index);
-app.post('/login',  loginController.post);
+
 
 
 app.get('/public/stylesheets/css/bootstrap.min.css', function (req, res) {
   res.sendFile(path.join(__dirname, '/public/stylesheets/css/', 'bootstrap.min.css'));
 });
 
-// Conexión a la base de datos
-
-require('./lib/connectMongoose');
-require('./models/Anuncio');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
