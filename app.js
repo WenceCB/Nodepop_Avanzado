@@ -5,11 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const jwtAuth = require('./lib/jwtAuth');
-/*
-const sessionAuth = require('./lib/sessionAuth'); 
-const session = require('express-session');
-const mongoose = require('mongoose');
-const MongoStore = require('connect-mongo')(session);*/
 
 // Inicializamos variables de enterno desde el fichero .env
 require('dotenv').config(); 
