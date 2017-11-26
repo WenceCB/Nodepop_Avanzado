@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-const jwtAuth = require('./lib/jwtAuth');
+//const jwtAuth = require('./lib/jwtAuth');
 
 // Inicializamos variables de enterno desde el fichero .env
 require('dotenv').config(); 
@@ -36,7 +36,7 @@ const i18n = require('./lib/i18nConfigure')();
 app.use(i18n.init); 
 
 
-app.use('/apiv1/anuncios', jwtAuth(), require('./routes/apiv1/anuncios'));
+app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
 
 
 
@@ -44,7 +44,7 @@ app.use('/apiv1/anuncios', jwtAuth(), require('./routes/apiv1/anuncios'));
 const loginController = require('./routes/apiv1/authenticate');
 
 app.get( '/apiv1/authenticate',  loginController.index);
-app.post('/apiv1/authenticate',  loginController.postLoginJWT);
+//app.post('/apiv1/authenticate',  loginController.postLoginJWT);
 
 // Defino donde tengo mis vistas cuando son llamadas
 
